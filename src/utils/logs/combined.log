@@ -1,0 +1,78 @@
+{"level":"info","message":"User Juan already exists in our database","timestamp":"2024-09-02T16:32:39.223Z"}
+{"level":"info","message":"User undefined registered successfully","timestamp":"2024-09-02T16:33:37.453Z"}
+{"level":"info","message":"User Juan registered successfully","timestamp":"2024-09-02T16:34:54.357Z"}
+{"level":"error","message":"Complete all fields","timestamp":"2024-09-02T16:39:41.681Z"}
+{"level":"error","message":"Complete all fields","timestamp":"2024-09-02T16:39:50.475Z"}
+{"level":"info","message":"User Juan already exists in our database","timestamp":"2024-09-02T18:36:19.213Z"}
+{"level":"info","message":"Returning user and tokeneyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI3ODk0NzAzfQ.bnlCO0HmH0I_HBsWRMMDDMP8aXz3cwF4jcmBBhyyX0k[object Object]","timestamp":"2024-09-02T18:45:03.712Z"}
+{"level":"info","message":"Returning user and tokeneyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI3ODk0NzExfQ.Fa_J17bWr2hFwi7HzDgTmvMjwGi0OBW4JSsQMXhUBeI[object Object]","timestamp":"2024-09-02T18:45:11.550Z"}
+{"level":"error","message":"The email entered is not registeredjuan@perez.com5","timestamp":"2024-09-02T18:47:17.085Z"}
+{"level":"error","message":"The email juan@perez.com5 is not registered ","timestamp":"2024-09-02T18:49:54.361Z"}
+{"level":"info","message":"Returning user and tokeneyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI3ODk1MDA4fQ.plBGGsUlX8A5s8f2O0oP7DXP-Nj7HleHm6rA88ySJzg[object Object]","timestamp":"2024-09-02T18:50:08.450Z"}
+{"level":"info","message":"Returning token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI3ODk1MDE1fQ.z7moG0HZzgaEh4bLwlL2zbI_GBBOChvbkWyoMx-kb5Q","timestamp":"2024-09-02T18:50:15.240Z"}
+{"level":"error","message":"Password is incorrect$2a$10$ov596LoeRiGPeWNhymnaCuFToTe4hsbjvSbgOmmFEs3x1BbE0xm/G 123456 5","timestamp":"2024-09-02T18:50:25.679Z"}
+{"level":"error","message":"Password is incorrect","timestamp":"2024-09-02T18:50:49.192Z"}
+{"level":"error","message":"Complete all fields","timestamp":"2024-09-02T18:51:08.481Z"}
+{"level":"info","message":"User Pedro registered successfully","timestamp":"2024-09-02T18:58:39.339Z"}
+{"level":"info","message":"User Pablo registered successfully","timestamp":"2024-09-02T18:58:58.148Z"}
+{"level":"info","message":"User Ariel registered successfully","timestamp":"2024-09-02T18:59:04.001Z"}
+{"level":"info","message":"User Roman registered successfully","timestamp":"2024-09-02T18:59:09.800Z"}
+{"level":"info","message":"Returning user and tokeneyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MGFmZDdmNDA4M2ZlYzMxMzE0ZDciLCJuYW1lIjoiUm9tYW4iLCJzdXJuYW1lIjoiU2lsdmEiLCJlbWFpbCI6InJvbWFuQHNpbHZhLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE3Mjc4OTU2MjB9.-MsAIEB__rWqtfOpCkwsCYg2Doohjq6v34GRDL_0-0E[object Object]","timestamp":"2024-09-02T19:00:20.737Z"}
+{"level":"error","message":"Invalid User ID","timestamp":"2024-09-02T19:02:38.334Z"}
+{"level":"info","message":"Users: [object Object],[object Object],[object Object],[object Object],[object Object]","timestamp":"2024-09-02T19:08:23.815Z"}
+{"level":"info","message":"Users: [object Object],[object Object],[object Object],[object Object],[object Object]","timestamp":"2024-09-02T19:09:42.551Z"}
+{"level":"info","message":"list of Users: ","timestamp":"2024-09-02T19:10:34.968Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-02T19:38:10.778Z"}
+{"level":"error","message":"You dont have permissions to update data","timestamp":"2024-09-02T19:43:47.766Z"}
+{"level":"error","message":"You dont have permissions to update data","timestamp":"2024-09-02T19:45:08.409Z"}
+{"level":"error","message":"You dont have permissions to update data","timestamp":"2024-09-02T19:45:35.833Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T19:55:46.518Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T19:57:06.329Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T19:58:14.217Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T19:59:09.837Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T19:59:48.175Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T20:00:59.066Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T20:01:12.977Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T20:02:00.099Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-02T20:02:14.448Z"}
+{"$clusterTime":{"clusterTime":{"$timestamp":"7410139090475024396"},"signature":{"hash":"aMAY7ZQ6Cd6H6QM/ImoPnTrSlio=","keyId":{"high":1710523324,"low":10,"unsigned":false}}},"code":66,"codeName":"ImmutableField","errorResponse":{"$clusterTime":{"clusterTime":{"$timestamp":"7410139090475024396"},"signature":{"hash":"aMAY7ZQ6Cd6H6QM/ImoPnTrSlio=","keyId":{"high":1710523324,"low":10,"unsigned":false}}},"code":66,"codeName":"ImmutableField","errmsg":"Plan executor error during findAndModify :: caused by :: Performing an update on the path '_id' would modify the immutable field '_id'","ok":0,"operationTime":{"$timestamp":"7410139090475024396"}},"level":"error","ok":0,"operationTime":{"$timestamp":"7410139090475024396"},"timestamp":"2024-09-02T20:02:52.179Z"}
+{"$clusterTime":{"clusterTime":{"$timestamp":"7410139339583127560"},"signature":{"hash":"dm7afN4GZt2SJymBAU0PRp6IwnQ=","keyId":{"high":1710523324,"low":10,"unsigned":false}}},"code":66,"codeName":"ImmutableField","errorResponse":{"$clusterTime":{"clusterTime":{"$timestamp":"7410139339583127560"},"signature":{"hash":"dm7afN4GZt2SJymBAU0PRp6IwnQ=","keyId":{"high":1710523324,"low":10,"unsigned":false}}},"code":66,"codeName":"ImmutableField","errmsg":"Plan executor error during findAndModify :: caused by :: Performing an update on the path '_id' would modify the immutable field '_id'","ok":0,"operationTime":{"$timestamp":"7410139339583127560"}},"level":"error","ok":0,"operationTime":{"$timestamp":"7410139339583127560"},"timestamp":"2024-09-02T20:03:49.987Z"}
+{"level":"error","timestamp":"2024-09-03T16:05:16.350Z"}
+{"level":"error","timestamp":"2024-09-03T16:05:21.391Z"}
+{"level":"error","timestamp":"2024-09-03T19:54:55.409Z"}
+{"level":"error","timestamp":"2024-09-03T19:55:00.212Z"}
+{"level":"error","timestamp":"2024-09-03T19:56:19.072Z"}
+{"level":"error","timestamp":"2024-09-03T19:57:15.251Z"}
+{"level":"error","timestamp":"2024-09-03T19:57:52.361Z"}
+{"level":"error","timestamp":"2024-09-03T19:59:01.489Z"}
+{"level":"error","timestamp":"2024-09-03T20:02:40.450Z"}
+{"level":"error","timestamp":"2024-09-03T20:03:23.116Z"}
+{"level":"error","timestamp":"2024-09-03T20:06:16.599Z"}
+{"level":"error","timestamp":"2024-09-03T20:06:40.771Z"}
+{"code":66,"errorResponse":{"code":66,"errmsg":"Performing an update on the path '_id' would modify the immutable field '_id'","index":0},"index":0,"level":"error","timestamp":"2024-09-03T20:07:54.539Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-03T20:16:57.114Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-03T20:17:00.992Z"}
+{"level":"error","message":"You do not have permissions to update this data","timestamp":"2024-09-03T20:18:13.866Z"}
+{"level":"error","timestamp":"2024-09-03T20:19:51.904Z"}
+{"level":"error","message":"User could not be updated","timestamp":"2024-09-03T20:23:39.835Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:43:33.613Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:43:50.933Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:44:27.203Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:44:41.903Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:46:13.963Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:46:39.986Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:46:43.124Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:46:54.975Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:48:16.743Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:48:23.280Z"}
+{"level":"error","timestamp":"2024-09-03T20:49:27.288Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:49:40.143Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:49:45.039Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:49:48.593Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:53:52.418Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:53:58.019Z"}
+{"level":"error","timestamp":"2024-09-03T20:54:22.462Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:54:48.286Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:54:52.362Z"}
+{"level":"info","message":"User updated successfully","timestamp":"2024-09-03T20:57:04.131Z"}
+{"level":"info","message":"List of Users retrieved successfully. Total users: 5","timestamp":"2024-09-03T20:57:18.946Z"}
