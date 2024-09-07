@@ -7,6 +7,9 @@ import userRoutes from './routes/user.routes.js';
 // middleware
 app.use(cors());
 app.use(urlencoded({ extended: true }));
+app.use(cors({
+  origin: ['http://localhost:4200', 'https://your-railway-app-name.up.railway.app']
+}));
 app.use(json());
 // rutas
 app.use('/api', userRoutes);
