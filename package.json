@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file .env --watch src/index.js",
+    "start": "node --watch src/index.js",
     "doc": "jsdoc -c jsdoc.json"
   },
   "author": "Sebastian Echazu",
