@@ -6,7 +6,7 @@ const app = express();
 import userRoutes from './routes/user.routes.js';
 // middleware
 app.use(cors({
-  origin: ['http://localhost:4200', 'https://your-railway-app-name.up.railway.app'],
+  origin: ['http://localhost:4200', 'https://api-tienda-production-fa4a.up.railway.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
