@@ -2,9 +2,9 @@
 
 import jwt from 'jwt-simple';
 import moment from 'moment';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 const secret = process.env.JWT_SECRET;
 
