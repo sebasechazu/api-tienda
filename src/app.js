@@ -1,5 +1,5 @@
 'use strict'
-import express, { urlencoded, json } from 'express';
+import express, { json,urlencoded } from 'express';
 import cors from 'cors';
 const app = express();
 // rutas
@@ -11,9 +11,16 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(json());
-// rutas
+app.use(urlencoded({ extended: true }));
+// api entry
+app.get('/', (req, res) => {
+  res.send('Welcome to the API');
+});
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
+// routes
 app.use('/api', userRoutes);
-// errores
+// errors
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
     res.json({

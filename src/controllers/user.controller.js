@@ -308,8 +308,8 @@ export const updateUser = async (req, res) => {
     try {
         const userId = req.params.id;
         const reqUser = req.body;
-        
-        if(!ObjectId.isValid(userId)){
+
+        if (!ObjectId.isValid(userId)) {
             logger.error('Invalid User ID')
             return res.status(400).send({ message: 'Invalid User ID' });
         }
@@ -318,7 +318,7 @@ export const updateUser = async (req, res) => {
 
         const updateResult = await getDatabase().collection('users').updateOne(
             { _id: new ObjectId(userId) },
-            { $set: {name : reqUser.name, surname : reqUser.surname ,nickname : reqUser.nickname} }
+            { $set: { name: reqUser.name, surname: reqUser.surname, nickname: reqUser.nickname } }
         );
 
         if (updateResult) {
