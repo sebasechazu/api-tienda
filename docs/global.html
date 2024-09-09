@@ -1,464 +1,0 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>JSDoc: Global</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
-</head>
-
-<body>
-
-<div id="main">
-
-    <h1 class="page-title">Global</h1>
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        <h2></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="getUser"><span class="type-signature">(constant) </span>getUser<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Retrieves a user by their ID.This function validates the provided user ID, checks if the user exists in the database,and returns the user details with the password field excluded. It handles different scenariossuch as invalid IDs, non-existent users, and any internal errors.
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line204">line 204</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>// Example usage in an Express route:router.get('/user/:id', getUser);// Expected request parameters:// - :id (string): The ID of the user to retrieve.// Possible responses:// - 200: { user: { ... } } where the user object does not include the password field// - 400: Invalid User ID// - 404: User not found// - 500: Error message (if something went wrong)</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="getUsers"><span class="type-signature">(constant) </span>getUsers<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Retrieves a list of all users from the database.This function fetches all user records from the database, removes the password field from each user object for security, logs the successful retrieval action, and returns the list of users in the response.
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line254">line 254</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>// Example usage in an Express route:router.get('/users', getUsers);// Possible responses:// - 200: { users: [{ ... }, { ... }, ...] } where each user object does not include the password field// - 500: An error occurred while retrieving users.</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="loginUser"><span class="type-signature">(constant) </span>loginUser<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Handles the login process for a user.This function validates the provided email and password, checks if the user exists in the database,verifies the password, and generates a token if the credentials are correct. It also logs relevant information about the login attempt and handles different scenarios based on whether the token only or both token and user details should be returned.
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line126">line 126</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>// Example usage in an Express route:router.post('/login', loginUser);// Expected request body:{  "email": "user@example.com",  "password": "userpassword",  "gettoken": true // Optional: Whether to return only the token or both token and user details.}// Possible responses:// - 200: { token: "&lt;token>" } if `gettoken` is true// - 200: { token: "&lt;token>", user: { ... } } if `gettoken` is false// - 400: Complete all fields// - 404: The email &lt;email> is not registered// - 500: Password is incorrect or error message</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="registerUser"><span class="type-signature">(constant) </span>registerUser<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Handles the registration of a new user.This function processes the user registration by validating the request body,checking if the user already exists in the database, hashing the password, and then storing the user in the database.
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line44">line 44</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>// Example usage in an Express route:router.post('/register', registerUser);// Expected request body:{  "name": "John",  "surname": "Doe",  "nickname": "johndoe",  "email": "johndoe@example.com",  "password": "securepassword123"}// Possible responses:// - 200: User John registered successfully// - 200: User John already exists in our database// - 400: Complete all fields// - 404: User not registered// - 500: Error message (if something went wrong)</code></pre>
-
-
-
-        
-            
-<h4 class="name" id="updateUser"><span class="type-signature">(constant) </span>updateUser<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Updates a user's details in the database.This function handles the update of user information by verifying the user's ID, ensuring that the user ID is valid, and then updating the user's name, surname, and nickname in the database.
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line307">line 307</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>// Example usage in an Express route:router.put('/user/:id', updateUser);// Expected request body:{  "name": "John",  "surname": "Doe",  "nickname": "johnny"}// Possible responses:// - 200: User updated successfully// - 400: Invalid User ID// - 404: User could not be updated// - 500: An error occurred while updating the user</code></pre>
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-</div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#getUsers">getUsers</a></li><li><a href="global.html#loginUser">loginUser</a></li><li><a href="global.html#registerUser">registerUser</a></li><li><a href="global.html#updateUser">updateUser</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Wed Sep 04 2024 10:33:32 GMT-0300 (hora estándar de Argentina)
-</footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
-</body>
-</html>
