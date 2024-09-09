@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node --trace-warnings src/index.js",
+    "dev" : "node --watch src/index.js",
     "doc": "jsdoc -c jsdoc.json"
   },
   "author": "Sebastian Echazu",

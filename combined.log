@@ -12,3 +12,29 @@
 {"level":"info","message":"User John registered successfully"}
 {"level":"error","message":"Complete all fields"}
 {"level":"error","message":"Email juan@perez.com already exists in our database"}
+{"level":"error","message":"Email juan@perez.com already exists in our database"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"info","message":"Returning token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI4NTA4ODI5fQ._dh2-gykheVBNRrHslunEL8WpRg_Gb8QGw6CHZJiqKA"}
+{"level":"info","message":"Returning user and tokeneyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI4NTA4ODQ3fQ.NzAiXyYdJPC_i_hV95G9j1jrKYn3JHljwX75w2YAPHY[object Object]"}
+{"level":"info","message":"Returning token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI4NTA4ODUzfQ.U9k2Y1nxmDtGmyQ9lyLAV57hrfG7l-2hLBRFn11R-TM"}
+{"level":"info","message":"Returning token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NmQ2MDU5ZDllNmU0YTcwN2ZjMDMzMmUiLCJuYW1lIjoiSnVhbiIsInN1cm5hbWUiOiJQZXJleiIsImVtYWlsIjoianVhbkBwZXJlei5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzI4NTA4OTY4fQ.BJXPtPQwsC5nQVWiR0NTMpZSRPz1t3ThQLK0iXdtcoY"}

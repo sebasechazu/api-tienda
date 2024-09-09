@@ -124,6 +124,7 @@ export const registerUser = async (req, res) => {
  * // - 500: Password is incorrect or error message
  */
 export const loginUser = async (req, res) => {
+
     try {
 
         const params = req.body;
@@ -138,22 +139,19 @@ export const loginUser = async (req, res) => {
 
                 const passwordIsCorrect = await compare(password, user.password);
 
-                if (passwordIsCorrect) {
+                console.log(typeof passwordIsCorrect);
 
+                if (passwordIsCorrect === true) {
                     const token = createToken(user);
 
-                    if (params.gettoken) {
-
-                        logger.info('Returning token: ' + token)
+                    if (params.gettoken !== undefined && params.gettoken) {
+                        logger.info('Returning token: ' + token);
                         return res.status(200).send({ token });
-
                     } else {
-
                         user.password = undefined;
-                        logger.info('Returning user and token' + token + user)
+                        logger.info('Returning user and token' + token + user);
                         return res.status(200).send({ token, user });
                     }
-
                 } else {
                     logger.error('Password is incorrect')
                     return res.status(500).send({ message: 'Password is incorrect' });
