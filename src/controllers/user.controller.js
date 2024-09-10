@@ -139,8 +139,6 @@ export const loginUser = async (req, res) => {
 
                 const passwordIsCorrect = await compare(password, user.password);
 
-                console.log(typeof passwordIsCorrect);
-
                 if (passwordIsCorrect === true) {
                     const token = createToken(user);
 
@@ -204,6 +202,8 @@ export const getUser = async (req, res) => {
     try {
 
         const userId = req.params.id;
+
+        console.log(userId);
 
         if (!ObjectId.isValid(userId)) {
             logger.error('Invalid User ID')
