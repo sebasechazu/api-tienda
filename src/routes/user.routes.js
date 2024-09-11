@@ -10,7 +10,7 @@ const api = Router();
 api.post('/register', registerUser);
 api.post('/login', loginUser);
 api.get('/user/:id', authenticateUser, getUser);
-api.get('/users/:page?', authenticateUser, getUsers);
+api.get('/users', authenticateUser, getUsers);
 api.put('/update-user/:id',authenticateUser, updateUser);
 
 export default api;
