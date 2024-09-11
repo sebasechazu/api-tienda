@@ -1,8 +1,17 @@
 'use strict'
 import express, { json,urlencoded } from 'express';
 import cors from 'cors';
+import {rateLimit} from 'express-rate-limit';
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, 
+    max: 100, 
+    standardHeaders: true, 
+    legacyHeaders: false, 
+})
 const app = express();
-// rutas
+
+// routes
 import userRoutes from './routes/user.routes.js';
 // middleware
 app.use(cors({
@@ -17,7 +26,8 @@ app.get('/', (req, res) => {
   res.send('Welcome to the API');
 });
 app.get('/favicon.ico', (req, res) => res.status(204).end());
-
+// limiter
+app.use(limiter);
 // routes
 app.use('/api', userRoutes);
 // errors
