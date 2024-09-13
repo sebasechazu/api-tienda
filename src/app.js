@@ -27,7 +27,8 @@ import userRoutes from './routes/user.routes.js';
 app.use(cors({
   origin: [url, 'http://localhost:4200'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, 
 }));
 app.use(json());
 app.use(urlencoded({ extended: true }));
