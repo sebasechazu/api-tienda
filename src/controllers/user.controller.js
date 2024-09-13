@@ -133,33 +133,35 @@ export const loginUser = async (req, res) => {
 
         if (email && password) {
 
-            const user = await getDatabase().collection('users').findOne({ email: email });
+            if (typeof email === 'string') {
+                const user = await getDatabase().collection('users').findOne({ email: { $eq: email } });
+                if (user) {
 
-            if (user) {
+                    const passwordIsCorrect = await compare(password, user.password);
 
-                const passwordIsCorrect = await compare(password, user.password);
+                    if (passwordIsCorrect === true) {
+                        const token = createToken(user);
 
-                console.log(typeof passwordIsCorrect);
-
-                if (passwordIsCorrect === true) {
-                    const token = createToken(user);
-
-                    if (params.gettoken !== undefined && params.gettoken) {
-                        logger.info('Returning token: ' + token);
-                        return res.status(200).send({ token });
+                        if (params.gettoken !== undefined && params.gettoken) {
+                            logger.info('Returning token: ' + token);
+                            return res.status(200).send({ token });
+                        } else {
+                            user.password = undefined;
+                            logger.info('Returning user and token' + token + user);
+                            return res.status(200).send({ token, user });
+                        }
                     } else {
-                        user.password = undefined;
-                        logger.info('Returning user and token' + token + user);
-                        return res.status(200).send({ token, user });
+                        logger.error('Password is incorrect')
+                        return res.status(500).send({ message: 'Password is incorrect' });
                     }
-                } else {
-                    logger.error('Password is incorrect')
-                    return res.status(500).send({ message: 'Password is incorrect' });
-                }
 
+                } else {
+                    logger.error('The email ' + email + ' is not registered ')
+                    return res.status(404).send({ message: 'The email ' + email + ' is not registered ' });
+                }
             } else {
-                logger.error('The email ' + email + ' is not registered ')
-                return res.status(404).send({ message: 'The email ' + email + ' is not registered ' });
+                logger.error('Email is not a string')
+                return res.status(400).send({ message: 'Email is not a string' });
             }
         } else {
             logger.error('Complete all fields')
@@ -204,6 +206,8 @@ export const getUser = async (req, res) => {
     try {
 
         const userId = req.params.id;
+
+        console.log(userId);
 
         if (!ObjectId.isValid(userId)) {
             logger.error('Invalid User ID')
