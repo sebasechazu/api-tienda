@@ -18,6 +18,8 @@ const url = process.env.CLIENT_URL;
 
 console.log(url);
 
+app.set('trust proxy', 1);
+
 // rutas
 import userRoutes from './routes/user.routes.js';
 
