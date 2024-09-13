@@ -6,7 +6,7 @@ import app from './app.js';
 import open from 'open';
 import net from 'net';
 
-console.clear();
+//console.clear();
 
 config();
 

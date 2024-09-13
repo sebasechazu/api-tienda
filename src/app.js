@@ -16,6 +16,8 @@ config();
 
 const url = process.env.CLIENT_URL;
 
+console.log(url);
+
 // rutas
 import userRoutes from './routes/user.routes.js';
 // middleware
