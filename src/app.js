@@ -2,11 +2,17 @@
 import express, { json,urlencoded } from 'express';
 import cors from 'cors';
 const app = express();
+import { config } from 'dotenv';
+
+config();
+
+const url = process.env.CLIENT_URL;
+
 // rutas
 import userRoutes from './routes/user.routes.js';
 // middleware
 app.use(cors({
-  origin: ['http://localhost:4200', 'https://api-tienda-production-fa4a.up.railway.app'],
+  origin: [url, 'https://api-tienda-production-fa4a.up.railway.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
