@@ -20,9 +20,10 @@ console.log(url);
 
 // rutas
 import userRoutes from './routes/user.routes.js';
+
 // middleware
 app.use(cors({
-  origin: [url, 'https://api-tienda-production-fa4a.up.railway.app'],
+  origin: [url, 'http://localhost:4200'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
