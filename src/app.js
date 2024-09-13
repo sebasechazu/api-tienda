@@ -29,6 +29,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, 
+  preflightContinue: false
 }));
 app.use(json());
 app.use(urlencoded({ extended: true }));
