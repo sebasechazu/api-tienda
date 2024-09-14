@@ -24,13 +24,18 @@ app.set('trust proxy', 1);
 import userRoutes from './routes/user.routes.js';
 
 // middleware
-app.use(cors({
-  origin: [url, 'http://localhost:4200'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, 
-  preflightContinue: false
-}));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', url || 'https://sebasechazu.github.io');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  if (req.method === 'OPTIONS') {
+      return res.sendStatus(200); // Si la solicitud es de tipo OPTIONS, responde con éxito
+  }
+  next(); // Continúa con la siguiente middleware o ruta
+});
+
+
 app.use(json());
 app.use(urlencoded({ extended: true }));
 // api entry
