@@ -24,13 +24,13 @@ app.set('trust proxy', 1);
 import userRoutes from './routes/user.routes.js';
 
 // middleware
-app.options('*', cors({
+app.use(cors({
   origin: [url, 'http://localhost:4200'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true, 
+  preflightContinue: false
 }));
-
 app.use(json());
 app.use(urlencoded({ extended: true }));
 // api entry
