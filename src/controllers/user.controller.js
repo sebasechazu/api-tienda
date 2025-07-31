@@ -1,13 +1,11 @@
 'use strict'
 import bcryptjs from 'bcryptjs';
-import mongodb from 'mongodb';
 import User from '../models/user.model.js';
 import { createToken } from '../services/jwt.js';
-import { getDatabase } from '../index.js';
+import { getFakeDatabase } from '../index.js';
 import logger from '../utils/logger.js';
 
 const { compare, hashSync } = bcryptjs;
-const { ObjectId } = mongodb;
 
 /**
  * Handles the registration of a new user.
@@ -42,15 +40,11 @@ const { ObjectId } = mongodb;
  * // - 500: Error message (if something went wrong)
  */
 export const registerUser = async (req, res) => {
-
     try {
-
         const params = req.body;
-
         if (params.name && params.surname && params.nickname && params.email && params.password) {
-
+            const db = getFakeDatabase();
             const user = new User(
-
                 params.name,
                 params.surname,
                 params.nickname,
@@ -58,38 +52,25 @@ export const registerUser = async (req, res) => {
                 params.password,
                 'ROLE_USER',
                 null
-
             );
-            const existingUser = await getDatabase().collection('users').findOne({ email: user.email.toLowerCase() });
-
+            const existingUser = db.users.find(u => u.email.toLowerCase() === user.email.toLowerCase());
             if (existingUser) {
                 logger.error('Email ' + user.email + ' already exists in our database');
                 return res.status(400).send({ message: 'email ' + user.email + ' already exists in our database' });
             } else {
-
                 user.password = hashSync(params.password, 10);
-                const userStored = await getDatabase().collection('users').insertOne(user);
-
-                if (userStored.insertedId) {
-                    logger.info('User ' + user.name + ' registered successfully')
-                    return res.status(200).send({ message: 'User ' + user.name + ' registered successfully' });
-
-                } else {
-                    logger.error('User not registered')
-                    return res.status(404).send({ message: 'User not registered' });
-
-                }
+                user.id = db.users.length ? Math.max(...db.users.map(u => u.id || 0)) + 1 : 1;
+                db.users.push(user);
+                logger.info('User ' + user.name + ' registered successfully')
+                return res.status(200).send({ message: 'User ' + user.name + ' registered successfully' });
             }
         } else {
             logger.error('Complete all fields')
             return res.status(400).send({ message: 'Complete all fields' });
-
         }
     } catch (error) {
-
         logger.error(error)
-        return res.status(500).send({ message: error });
-
+        return res.status(500).send({ message: error.toString() });
     }
 };
 /**
@@ -124,37 +105,31 @@ export const registerUser = async (req, res) => {
  * // - 500: Password is incorrect or error message
  */
 export const loginUser = async (req, res) => {
-
     try {
-
         const params = req.body;
         const email = params.email;
         const password = params.password;
-
         if (email && password) {
-
             if (typeof email === 'string') {
-                const user = await getDatabase().collection('users').findOne({ email: { $eq: email } });
+                const db = getFakeDatabase();
+                const user = db.users.find(u => u.email === email);
                 if (user) {
-
                     const passwordIsCorrect = await compare(password, user.password);
-
                     if (passwordIsCorrect === true) {
                         const token = createToken(user);
-
                         if (params.gettoken !== undefined && params.gettoken) {
                             logger.info('Returning token: ' + token);
                             return res.status(200).send({ token });
                         } else {
-                            user.password = undefined;
-                            logger.info('Returning user and token' + token + user);
-                            return res.status(200).send({ token, user });
+                            const userCopy = { ...user };
+                            userCopy.password = undefined;
+                            logger.info('Returning user and token' + token + userCopy);
+                            return res.status(200).send({ token, user: userCopy });
                         }
                     } else {
                         logger.error('Password is incorrect')
                         return res.status(500).send({ message: 'Password is incorrect' });
                     }
-
                 } else {
                     logger.error('The email ' + email + ' is not registered ')
                     return res.status(404).send({ message: 'The email ' + email + ' is not registered ' });
@@ -167,11 +142,9 @@ export const loginUser = async (req, res) => {
             logger.error('Complete all fields')
             return res.status(400).send({ message: 'Complete all fields' });
         }
-    }
-
-    catch (error) {
+    } catch (error) {
         logger.error(error)
-        return res.status(500).send({ message: error });
+        return res.status(500).send({ message: error.toString() });
     }
 };
 
@@ -202,32 +175,25 @@ export const loginUser = async (req, res) => {
  */
 
 export const getUser = async (req, res) => {
-
     try {
-
-        const userId = req.params.id;
-
-        console.log(userId);
-
-        if (!ObjectId.isValid(userId)) {
+        const userId = parseInt(req.params.id, 10);
+        if (isNaN(userId)) {
             logger.error('Invalid User ID')
             return res.status(400).send({ message: 'Invalid User ID' });
         }
-
-        const user = await getDatabase().collection('users').findOne({ _id: new ObjectId(userId) });
-
+        const db = getFakeDatabase();
+        const user = db.users.find(u => u.id === userId);
         if (user) {
-            user.password = undefined;
-            return res.status(200).send({ user });
-
+            const userCopy = { ...user };
+            userCopy.password = undefined;
+            return res.status(200).send({ user: userCopy });
         } else {
             logger.error('User not found')
             return res.status(404).send({ message: 'User not found' });
         }
-
     } catch (error) {
         logger.error(error)
-        return res.status(500).send({ message: error });
+        return res.status(500).send({ message: error.toString() });
     }
 }
 
@@ -255,16 +221,15 @@ export const getUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
     try {
-        const users = await getDatabase().collection('users').find().toArray();
-
-        users.forEach((user) => {
-            user.password = undefined;
+        const db = getFakeDatabase();
+        const users = db.users.map(u => {
+            const userCopy = { ...u };
+            userCopy.password = undefined;
+            return userCopy;
         });
         logger.info(`List of Users retrieved successfully. Total users: ${users.length}`);
-
         return res.status(200).send({ users });
     } catch (error) {
-
         logger.error('Error retrieving users:', error);
         return res.status(500).send({ message: 'An error occurred while retrieving users.' });
     }
@@ -308,29 +273,24 @@ export const getUsers = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const userId = req.params.id;
+        const userId = parseInt(req.params.id, 10);
         const reqUser = req.body;
-
-        if (!ObjectId.isValid(userId)) {
+        if (isNaN(userId)) {
             logger.error('Invalid User ID')
             return res.status(400).send({ message: 'Invalid User ID' });
         }
-
-        delete reqUser._id;
-
-        const updateResult = await getDatabase().collection('users').updateOne(
-            { _id: new ObjectId(userId) },
-            { $set: { name: reqUser.name, surname: reqUser.surname, nickname: reqUser.nickname } }
-        );
-
-        if (updateResult) {
+        const db = getFakeDatabase();
+        const user = db.users.find(u => u.id === userId);
+        if (user) {
+            user.name = reqUser.name || user.name;
+            user.surname = reqUser.surname || user.surname;
+            user.nickname = reqUser.nickname || user.nickname;
             logger.info('User updated successfully');
             return res.status(200).send({ message: 'User updated successfully' });
         } else {
             logger.error('User could not be updated');
             return res.status(404).send({ message: 'User could not be updated' });
         }
-
     } catch (error) {
         logger.error(error);
         return res.status(500).send({ message: 'An error occurred while updating the user' });

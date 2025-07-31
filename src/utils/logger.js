@@ -1,19 +1,10 @@
-import { createLogger, format as _format, transports as _transports } from 'winston';
+// src/utils/logger.js
 
-const logger = createLogger({
-    level: process.env.NODE_ENV === 'production' ? 'error' : 'info',
-    format: _format.json(),
-    transports: [
-        ...(process.env.NODE_ENV !== 'production' ? [
-            new _transports.Console({
-                format: _format.simple(),
-            }),
-            new _transports.File({ filename: 'combined.log', maxsize: 5242880, maxFiles: 5 }),
-        ] : [
-            new _transports.File({ filename: 'error.log', level: 'error', maxsize: 5242880, maxFiles: 5 })
-        ])
-    ],
-});
+const logger = {
+  info: (...args) => console.log('[INFO]', ...args),
+  error: (...args) => console.error('[ERROR]', ...args),
+  warn: (...args) => console.warn('[WARN]', ...args),
+  debug: (...args) => console.debug('[DEBUG]', ...args),
+};
 
 export default logger;
-
